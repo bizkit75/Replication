@@ -48,4 +48,23 @@ public class Pool {
 			}
 		}
 	}
+	
+	static class Client extends Thread {
+		public void run() {
+
+			try {
+				while (true) {
+
+					semaphore.acquire();
+					mutex.acquire();
+
+					mutex.release();
+					Thread.sleep(180 * 1000);
+
+				}
+			} catch (Exception x) {
+				x.printStackTrace();
+			}
+		}
+	}
 }
