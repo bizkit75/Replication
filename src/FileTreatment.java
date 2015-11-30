@@ -15,12 +15,13 @@ public class FileTreatment {
 	ArrayList<String> arrayLinesFileCork = new ArrayList<String>();
 
 	String Lines;
-	String FolderPath = "src/austen-bronte";
+	String FolderPathCork = "src/Cork";
+	String FolderPathDublin = "src/austen-bronte";
 	
 
 	void ListFiles() {
 		
-		File f = new File(FolderPath);
+		File f = new File(FolderPathCork);
 		System.out.println(f.getAbsolutePath());
 
 		listfile = f.listFiles();

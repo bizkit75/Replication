@@ -13,7 +13,7 @@ public class Servers {
 		System.out.println("ETAPE: 44");
 		Socket sock = new ServerSocket(9022).accept();
 		
-		Servers.transfert(sock.getInputStream(), new FileOutputStream("D:\\test2.jpg"), true);
+		Servers.transfert(sock.getInputStream(), new FileOutputStream("Dublin/student2.txt"), true);
 		System.out.println("ETAPE: 4");
 		sock.close();
 	}
@@ -24,7 +24,7 @@ public class Servers {
 	        Socket sock = new Socket(InetAddress.getLocalHost(),9022);
 	    
 	        Servers.transfert(
-	                new FileInputStream("D:\\test.jpg"),
+	                new FileInputStream("Cork/student2.txt"),
 	                sock.getOutputStream(),
 	                true);
 	        System.out.println("ETAPE: 5");

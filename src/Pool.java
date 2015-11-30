@@ -23,18 +23,19 @@ public class Pool {
 				System.out.println("ETAPE: 11");
 				Dublin.Check();
 				
-				
-				
+				new Pool.DublinServor().start();
+			
 				System.out.println("ETAPE: 3");
 					
-					Thread.sleep(10000 * 1000);
+					Thread.sleep(180 * 1000);
 				}
 			} catch (Exception x) {
 				x.printStackTrace();
 			}
 		}
 	}
-
+	
+	
 	static class CorkServor extends Thread {
 		public void run() {
 
