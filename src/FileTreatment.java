@@ -16,7 +16,7 @@ public class FileTreatment {
 
 	String Lines;
 	String FolderPathCork = "src/Cork";
-	String FolderPathDublin = "src/austen-bronte";
+	String FolderPathDublin = "src/Dublin";
 	
 
 	void ListFiles() {
@@ -47,7 +47,7 @@ public class FileTreatment {
 			while (in.ready()) {
 
 				Lines = in.readLine().toString();
-				//arrayLines.add(Lines);
+				arrayLinesFileCork.add(Lines);
 			}
 
 			in.close();
@@ -67,7 +67,7 @@ public class FileTreatment {
 	public ArrayList<String> getArrayLines() {
 		return arrayLinesFileDublin;
 	}
-	public ArrayList<String> getarrayLinesStopWords() {
+	public ArrayList<String> getarrayLinesFileCork() {
 		return arrayLinesFileCork;
 	}
 	

@@ -10,52 +10,39 @@ public class Pool {
 
 	static class DublinServor extends Thread {
 		public void run() {
-			
+			System.out.println("Step: DublinServor");
 			int counter = 1;
 			try {
 				while (true) {
-
-					mutex.release();
-					semaphore.release();
-					System.out.println("ETAPE: 1");
-				Servers Dublin = new Servers();
+					System.out.println("STEP: DublinServor");
 				
-				System.out.println("ETAPE: 11");
-				Dublin.Check();
-				
-				new Pool.DublinServor().start();
-			
-				System.out.println("ETAPE: 3");
-					
-					Thread.sleep(180 * 1000);
+					Servers Dublin = new Servers();
+					Dublin.Check();
+					Thread.sleep(0);
 				}
 			} catch (Exception x) {
 				x.printStackTrace();
 			}
 		}
 	}
-	
-	
+
 	static class CorkServor extends Thread {
 		public void run() {
-
+			System.out.println("Step: CorkServor");
 			try {
 				while (true) {
 
-					semaphore.acquire();
-					mutex.acquire();
+				
 					Servers Corck = new Servers();
 					Corck.Send();
-					mutex.release();
-					Thread.sleep(180 * 1000);
-
+					Thread.sleep(20 * 1000);
 				}
 			} catch (Exception x) {
 				x.printStackTrace();
 			}
 		}
 	}
-	
+
 	static class Client extends Thread {
 		public void run() {
 

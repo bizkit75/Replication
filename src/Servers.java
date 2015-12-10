@@ -10,31 +10,38 @@ import java.net.Socket;
 public class Servers {
 
 	public static void Check() throws IOException {
-		System.out.println("ETAPE: 44");
-		Socket sock = new ServerSocket(9022).accept();
 		
-		Servers.transfert(sock.getInputStream(), new FileOutputStream("Dublin/student2.txt"), true);
-		System.out.println("ETAPE: 4");
+		System.out.println("STEP: Check()");
+		ServerSocket listener = new ServerSocket(9082);
+		listener.setReuseAddress(true);
+		Socket sock = listener.accept();
+		sock.setReuseAddress(true);
+		System.out.println("STEP: Check()");
+		Servers.transfert(sock.getInputStream(), new FileOutputStream("src/Dublin/student5.txt"), true);
+		listener.close();
 		sock.close();
+		System.out.println("STEP: END Check()");
+		
 	}
-	
 	
 	    public static void Send() throws IOException 
 	    { 
-	        Socket sock = new Socket(InetAddress.getLocalHost(),9022);
-	    
+	    	
+	        Socket sock = new Socket(InetAddress.getLocalHost(),9082);
+	        System.out.println("STEP: Send()");
 	        Servers.transfert(
-	                new FileInputStream("Cork/student2.txt"),
+	                new FileInputStream("src/Cork/student2.txt"),
 	                sock.getOutputStream(),
 	                true);
-	        System.out.println("ETAPE: 5");
 	        sock.close();
+	        System.out.println("STEP: END Send()");
+	        System.out.println("OUPA");
 	   } 
 	
 
 	public static void transfert(InputStream in, OutputStream out, boolean closeOnExit) throws IOException {
 		byte buf[] = new byte[1024];
-
+		System.out.println("STEP: Trnasfert");
 		int n;
 		while ((n = in.read(buf)) != -1)
 			out.write(buf, 0, n);
